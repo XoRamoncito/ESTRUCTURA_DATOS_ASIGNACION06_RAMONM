@@ -4,10 +4,9 @@
  */
 package pruebas_main;
 
-
-
 import implementacion.ArrayList;
 import implementaciones.LinkedList;
+import implementaciones.DoubleLinkedList;
 import interfaces.IList;
 import excepciones.ListException;
 
@@ -27,7 +26,7 @@ public class main {
             arrayList.remove("Uno");
             System.out.println("Despues de eliminar 'Uno': tamano = " + arrayList.size());
             arrayList.clear();
-            System.out.println("Esta vacia? " + arrayList.isEmpty());
+            System.out.println("Esta vacia: " + arrayList.isEmpty());
 
             System.out.println("\n=== Prueba LinkedList ===");
             IList<String> linkedList = new LinkedList<>();
@@ -42,7 +41,22 @@ public class main {
             linkedList.remove("A");
             System.out.println("Despues de eliminar 'A': tamano = " + linkedList.size());
             linkedList.clear();
-            System.out.println("Esta vacia? " + linkedList.isEmpty());
+            System.out.println("Esta vacia: " + linkedList.isEmpty());
+
+            System.out.println("\n=== Prueba DoubleLinkedList ===");
+            IList<String> doubleLinkedList = new DoubleLinkedList<>();
+            doubleLinkedList.add("X");
+            doubleLinkedList.add("Y");
+            doubleLinkedList.add("Z");
+            System.out.println("Tamano: " + doubleLinkedList.size());
+            System.out.println("Elemento en posicion 0: " + doubleLinkedList.get(0));
+            doubleLinkedList.set("Modificado", 1);
+            System.out.println("Elemento modificado en posicion 1: " + doubleLinkedList.get(1));
+            System.out.println("Indice de 'Z': " + doubleLinkedList.indexOf("Z"));
+            doubleLinkedList.remove("X");
+            System.out.println("Despues de eliminar 'X': tamano = " + doubleLinkedList.size());
+            doubleLinkedList.clear();
+            System.out.println("Esta vacia: " + doubleLinkedList.isEmpty());
 
         } catch (ListException e) {
             System.err.println("Error: " + e.getMessage());
